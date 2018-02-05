@@ -30,7 +30,7 @@ function startGame() {
         wordToGuess.findLetter(letter);
         guessesLeft--;
         if (wordToGuess.guessesMade.length >= numberOfGuesses) {
-            console.log('---------------------\nIm sorry you lost :(\n------End Game------n');
+            console.log('---------------------\n\nIm sorry you lost :(\n\n------End Game------\n');
             return;
         }
         if (wordToGuess.isComplete()) {
@@ -38,6 +38,20 @@ function startGame() {
             return;
         }
         console.log('---------------------\nYou have ' + (numberOfGuesses - wordToGuess.guessesMade.length) + ' guesses left.\n')
+        if (guessesLeft === 0) {
+            inquirer.prompt([{
+                name: 'endGame',
+                type: 'confirm',
+                message: 'Would you like to play again?:'
+            }]).then(function(answer) {
+                if (answer.endGame === true) {
+                    // starts new match with the same players
+                    startGame();
+                } else {
+                    console.log("Come back again soon!");
+                }
+            });
+        }
         startGame();
     });
 }
