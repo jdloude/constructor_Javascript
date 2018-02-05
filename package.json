@@ -1,0 +1,14 @@
+{
+    "name": "hangman",
+    "version": "1.0.0",
+    "description": "command line node game of hangman",
+    "main": "hangmanMain.js",
+    "dependencies": {
+        "inquirer": "^5.1.0"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jdloude/constructor_Javascript.git"
+    }
+}
