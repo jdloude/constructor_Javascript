@@ -45,7 +45,6 @@ function startGame() {
                 message: 'Would you like to play again?:'
             }]).then(function(answer) {
                 if (answer.endGame === true) {
-                    // starts new match with the same players
                     startGame();
                 } else {
                     console.log("Come back again soon!");
