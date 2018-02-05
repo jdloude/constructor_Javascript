@@ -42,7 +42,6 @@ function startGame() {
         startGame();
     });
 }
-
 startGame(); //Start Game
 
 function restart() {
@@ -53,6 +52,9 @@ function restart() {
             message: 'Would you like to play again?:'
         }]).then(function(answer) {
             if (answer.endGame === true) {
+                var wordToGuess = new wordCons.wordCons(randomWord);
+                var numberOfGuesses = 18;
+                var guessesLeft = numberOfGuesses;
                 startGame();
             } else {
                 console.log("Come back again soon!");
