@@ -31,6 +31,7 @@ function startGame() {
         guessesLeft--;
         if (wordToGuess.guessesMade.length >= numberOfGuesses) {
             console.log('---------------------\n\nIm sorry you lost :(\n\n------End Game------\n');
+            restart();
             return;
         }
         if (wordToGuess.isComplete()) {
@@ -43,3 +44,19 @@ function startGame() {
 }
 
 startGame(); //Start Game
+
+function restart() {
+    if (guessesLeft < 5) {
+        inquirer.prompt([{
+            name: 'endGame',
+            type: 'confirm',
+            message: 'Would you like to play again?:'
+        }]).then(function(answer) {
+            if (answer.endGame === true) {
+                startGame();
+            } else {
+                console.log("Come back again soon!");
+            }
+        });
+    }
+}
