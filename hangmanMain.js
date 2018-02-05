@@ -38,19 +38,6 @@ function startGame() {
             return;
         }
         console.log('---------------------\nYou have ' + (numberOfGuesses - wordToGuess.guessesMade.length) + ' guesses left.\n')
-        if (guessesLeft === 0) {
-            inquirer.prompt([{
-                name: 'endGame',
-                type: 'confirm',
-                message: 'Would you like to play again?:'
-            }]).then(function(answer) {
-                if (answer.endGame === true) {
-                    startGame();
-                } else {
-                    console.log("Come back again soon!");
-                }
-            });
-        }
         startGame();
     });
 }
